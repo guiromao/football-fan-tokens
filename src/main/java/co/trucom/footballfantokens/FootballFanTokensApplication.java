@@ -28,7 +28,7 @@ public class FootballFanTokensApplication implements CommandLineRunner {
 		List<FanToken> listTokens = Arrays.asList(
 				new FanToken("SCP", "Sporting Clube de Portugal", 22d),
 				new FanToken("POR", "Portugal", 11d),
-				new FanToken("RMA", "Read Madrid Club de Fútbol", 22d)
+				new FanToken("RMA", "Read Madrid Club de Fútbol", 9d)
 		);
 
 		for (FanToken token: listTokens) {

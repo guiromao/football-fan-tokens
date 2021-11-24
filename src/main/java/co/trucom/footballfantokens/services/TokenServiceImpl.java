@@ -49,6 +49,21 @@ public class TokenServiceImpl implements TokenService {
 		tokenRepository.deleteById(code);
 	}
 
+	@Override
+	public FanTokenDto updatePrice(String code, Double price) {
+		assertCodeIsValid(code);
+		FanToken token = tokenRepository.findById(code).orElse(null);
+		FanTokenDto dto = null;
+
+		if (token != null) {
+			token.setPrice(price);
+			token = tokenRepository.saveAndFlush(token);
+			dto = TokenConverter.tokenToDto(token);
+		}
+
+		return dto;
+	}
+
 	private FanTokenDto fetchTokenDtoOrNull(String code) {
 		FanToken token = tokenRepository.findById(code).orElse(null);
 		FanTokenDto dto = null;
