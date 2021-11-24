@@ -1,5 +1,7 @@
 package co.trucom.footballfantokens.models;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -26,6 +28,23 @@ public class FanToken {
 		this.id = id;
 		this.club = club;
 		this.price = value;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(club, id, price);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FanToken other = (FanToken) obj;
+		return Objects.equals(club, other.club) && Objects.equals(id, other.id) && Objects.equals(price, other.price);
 	}
 
 	public String toString() {
