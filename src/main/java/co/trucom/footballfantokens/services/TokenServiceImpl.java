@@ -64,6 +64,13 @@ public class TokenServiceImpl implements TokenService {
 		return dto;
 	}
 
+	@Override
+	public boolean tokenExists(String code) {
+		assertCodeIsValid(code);
+
+		return tokenRepository.findById(code).isPresent();
+	}
+
 	private FanTokenDto fetchTokenDtoOrNull(String code) {
 		FanToken token = tokenRepository.findById(code).orElse(null);
 		FanTokenDto dto = null;

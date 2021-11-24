@@ -32,11 +32,10 @@ public class FootballFanTokensApplication implements CommandLineRunner {
 		);
 
 		for (FanToken token: listTokens) {
-			FanTokenDto dto = TokenConverter.tokenToDto(token);
-			System.out.println(dto);
-			dto = tokenService.saveToken(dto);
-			FanToken savedToken = TokenConverter.dtoToToken(dto);
-			System.out.println("Saved Token: " + savedToken);
+			if (!tokenService.tokenExists(token.getId())) {
+				FanTokenDto dto = TokenConverter.tokenToDto(token);
+				tokenService.saveToken(dto);
+			}
 		}
 	}
 

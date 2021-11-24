@@ -16,4 +16,6 @@ public interface TokenService {
 
 	FanTokenDto updatePrice(String code, Double price);
 
+	boolean tokenExists(String code);
+
 }
