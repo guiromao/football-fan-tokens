@@ -69,9 +69,7 @@ public class TokenServiceTest {
 	@Test
 	void listAll_ShouldReturnAllFanTokens() {
 		token2 = new FanToken("POR", "Portugal", 99d);
-		List<FanToken> allTokens = new ArrayList<>();
-		allTokens.add(token1);
-		allTokens.add(token2);
+		List<FanToken> allTokens = List.of(token1, token2);
 
 		Mockito.when(tokenRepository.findAll()).thenReturn(allTokens);
 		List<FanToken> returnedTokens = TokenConverter.listDtoToListToken(tokenService.listTokens());
