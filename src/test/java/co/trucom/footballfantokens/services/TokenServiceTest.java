@@ -39,7 +39,7 @@ public class TokenServiceTest {
 
 		Mockito.when(tokenRepository.saveAndFlush(token1)).thenReturn(token1);
 
-		FanTokenDto expectedResultDto = new FanTokenDto("SCP", "Sporting Clube de Portugal", 200d);
+		FanTokenDto expectedResultDto = TokenConverter.tokenToDto(token1);
 		FanToken expectedResulToken = TokenConverter.dtoToToken(expectedResultDto);
 
 		Assertions.assertEquals(expectedResulToken, TokenConverter.dtoToToken(tokenService.saveToken(dto1)));
