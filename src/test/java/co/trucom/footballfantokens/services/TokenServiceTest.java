@@ -1,6 +1,5 @@
 package co.trucom.footballfantokens.services;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -65,7 +64,7 @@ public class TokenServiceTest {
 
 		Assertions.assertTrue(compareDtos(expectedResult, result));
 	}
-	
+
 	@Test
 	void listAll_ShouldReturnAllFanTokens() {
 		token2 = new FanToken("POR", "Portugal", 99d);
